@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.finalPjt.model.dao.MessageDao">
+
+	<insert id="createMessage" parameterType="Message">
+		INSERT INTO
+		message(from_user, to_user, content)
+		VALUES (#{from_user}, #{to_user},
+		#{content})
+	</insert>
+
+	<select id="receivedMessage" parameterType="string"
+		resultType="Message">
+		SELECT *
+		FROM message
+		WHERE to_user = #{id}
+		ORDER BY m_id DESC
+	</select>
+
+	<select id="sentMessage" parameterType="string"
+		resultType="Message">
+		SELECT *
+		FROM message
+		WHERE from_user = #{id}
+		ORDER BY m_id
+		DESC
+	</select>
+
+	<select id="sentMessageFromUser" parameterType="String"
+		resultType="Message">
+		SELECT *
+		FROM message
+		WHERE from_user = #{myId} AND to_user = #{userId}
+	</select>
+
+	<select id="receivedMessageFromUser" parameterType="String"
+		resultType="Message">
+		SELECT *
+		FROM message
+		WHERE to_user = #{myId} AND from_user = #{userId}
+	</select>
+
+
+</mapper>
