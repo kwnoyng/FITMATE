@@ -2,6 +2,7 @@
   <img width="200px;" src="https://decsnota.sirv.com/FITMATE_LOGO.png"/>
 </p>
 <h1 align="middle">Fit Mate</h1>
+<h3 align="middle">22.11.15 ~ 22.11.24</h3>
 
 ## Why FitMate ?
 
